@@ -1,4 +1,4 @@
-public class KadaneAlgorithm{
+public class kadaneAlgorithm{
     //aka Maximum sum Sub Array
     public static int maxSumSubArr(int[] nums){
         int maxSoFar = nums[0];
