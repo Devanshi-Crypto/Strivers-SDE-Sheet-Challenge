@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.* ;
+
+import java.util.ArrayList;
+
+public class numberOfXOR {
+	public static int subarraysXor(ArrayList<Integer> arr, int x) {
+		// Write your code here.
+		int count = 0;
+        int xorSum = 0;
+        Map<Integer, Integer> xorMap = new HashMap<>();
+        xorMap.put(0, 1); // Initialize with xorSum = 0 and frequency 1
+
+        for (int i = 0; i < arr.size(); i++) {
+            xorSum ^= arr.get(i);
+
+            // Check if (xorSum ^ targetXOR) exists in the map
+            if (xorMap.containsKey(xorSum ^ x)) {
+                count += xorMap.get(xorSum ^ x);
+            }
+
+            // Increment the frequency of the current xorSum
+            xorMap.put(xorSum, xorMap.getOrDefault(xorSum, 0) + 1);
+        }
+
+        return count;
+    }
+
+}
